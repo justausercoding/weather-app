@@ -1,0 +1,34 @@
+/* ---------- RESET ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+
+/* ---------- FONT ---------- */
+body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
+/* ---------- VARIABLES ---------- */
+
+
+
+
+/* ---------- PROJECT ---------- */
+/* ---- LAYOUT HEADING ---- */
+/* -- heading -- */
+/* this is a comment */
