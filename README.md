@@ -1,4 +1,4 @@
-# Project name
+# Weather App
 
 **Course**: The Odin Project - JavaScript Course
 
