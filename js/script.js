@@ -1,19 +1,27 @@
 // ---------- CONNECTION TO API ----------
 async function checkEnteredCity(city) {
-    let response = await fetch(`https://api.weatherapi.com/v1/search.json?key=b43d0f88c6274dffa0a35845241306&q=${city}`, {mode: "cors"});
-    let json = await response.json();
-    return json;
+    try {
+        let response = await fetch(`https://api.weatherapi.com/v1/search.json?key=b43d0f88c6274dffa0a35845241306&q=${city}`, {mode: "cors"});
+        let json = await response.json();
+        return json;
+    } catch(error) {
+        throw new Error(error);
+    }
 }
 
 
 async function fetchWeatherData(location) {
     // "hour=24" in the api call makes the api not returning hourly forecasts (saving traffic data)
-    let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=b43d0f88c6274dffa0a35845241306&q=${location}&days=3&hour=24`, {mode: "cors"});
-    if (response.status == 200) {
-        let json = await response.json();
-        return json;
-    } else {
-        throw new Error(response.status)
+    try {
+        let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=b43d0f88c6274dffa0a35845241306&q=${location}&days=3&hour=24`, {mode: "cors"});
+        if (response.status == 200) {
+            let json = await response.json();
+            return json;
+        } else {
+            throw new Error(response.status)
+        }
+    } catch(error) {
+        throw new Error(error)
     }
 }
 
@@ -47,7 +55,12 @@ function getTime(dateObj) {
 
 // ---------- CHANGE DOM ----------
 async function changeCityDataHtml(cityName) {
-    let cityExists = await checkEnteredCity(cityName);
+    let cityExists;
+    try {
+        cityExists = await checkEnteredCity(cityName);
+    } catch(error) {
+        console.log(error);
+    }
     if (cityExists.length != 0) {
 
         const divCity = document.querySelector(".t__city");
@@ -69,7 +82,13 @@ async function changeCityDataHtml(cityName) {
         const divForecastTemp2 = document.querySelector(".f__twodays .f__temp");
         const imgForecast2 = document.querySelector(".f__twodays .f__symbol");
 
-        const data = await fetchWeatherData(cityName);
+        let data;
+        try {
+            data = await fetchWeatherData(cityName);
+        } catch(error) {
+            console.log(error);
+        }
+
         const locale = data.location;
         const now = data.current;
         const forecast1 = data.forecast.forecastday[1];
@@ -105,7 +124,7 @@ async function changeCityDataHtml(cityName) {
 // ---------- EVENT LISTNERS ----------
 function eventListener() {
     const inputSearch = document.querySelector("#form__input");
-    inputSearch.addEventListener("keydown", async e => {
+    inputSearch.addEventListener("keydown", e => {
         if (e.key == "Enter") {
             const cityName = inputSearch.value;
             inputSearch.value = "";
