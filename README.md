@@ -6,4 +6,4 @@
 **Project**: Weather App
 
 
-The task of this project was to build a weather app which would get the data to be displayed from an API.
+**Task**: Build a weather app which would get data from an API.
