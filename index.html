@@ -3,11 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather app</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/script.js" defer></script>
 </head>
 <body>
-    
+    <div class="form">
+        <input type="text" id="form__input" name="city" placeholder="enter a city ..." required>
+    </div>
+    <div class="today">
+        <div class="t__city"></div>
+        <div class="t__country"></div>
+        <div class="t__datetime"></div>
+        <div class="t__temp">
+            <div class="t__temp-data"></div>
+            <div class="t__temp-unit">°C</div>
+        </div>
+        <div class="t__descr">
+            <div class="t__descr-text"></div>
+            <img class="t__descr-symbol" src="" alt="">
+        </div>
+        <div class="t__info">
+            <div class="t__info-text feels">feels like ⎯</div>
+            <div class="t__info-data feels"></div>
+            <div class="t__info-text humidity">humidity ⎯</div>
+            <div class="t__info-data humidity"></div>
+            <div class="t__info-text visibility">visibility ⎯</div>
+            <div class="t__info-data visibility"></div>
+            <div class="t__info-text wind">wind ⎯</div>
+            <div class="t__info-data wind"></div>
+        </div>
+    </div>
+    <div class="forecast">
+        <div class="f__title">forecast</div>
+        <hr>
+        <div class="f__oneday">
+            <div class="f__date"></div>
+            <div class="f__temp"></div>
+            <img class="f__symbol" src="" alt="">
+        </div>
+        <hr>
+        <div class="f__twodays">
+            <div class="f__date"></div>
+            <div class="f__temp"></div>
+            <img class="f__symbol" src="" alt="">
+        </div>
+        <hr>
+    </div>
+    <div class="credit">
+        Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+    </div>
 </body>
 </html>

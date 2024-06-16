@@ -18,17 +18,183 @@ button, input, label {
 }
 
 
+
 /* ---------- FONT ---------- */
 body {
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 }
 
-/* ---------- VARIABLES ---------- */
 
+
+/* ---------- VARIABLES ---------- */
+:root {
+    --color-day-background: linear-gradient(#def4fc9a, #6f71fb68);
+    --color-day-input: #f8fdff;
+    --color-day-input-focus: #6f71fb68;
+    
+}
+
+
+
+/* ---------- ELEMENTS ---------- */
+a:link,
+a:visited,
+a:hover {
+    color: black;
+}
 
 
 
 /* ---------- PROJECT ---------- */
-/* ---- LAYOUT HEADING ---- */
-/* -- heading -- */
-/* this is a comment */
+body {
+    background: var(--color-day-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ---- INPUT ---- */
+input {
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 25px;
+    padding: 5px 5px 5px 10px;
+    margin: 18px 0px 10px 0px;
+    background: var(--color-day-input);
+    box-shadow: rgba(149, 157, 165, 0.295) 3px 3px 8px;
+}
+
+input:focus {
+    outline: none;
+    background: var(--color-day-input-focus);
+}
+
+
+/* ---- TODAY WEATHER ---- */
+.today {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+
+}
+
+.t__city {
+    font-size: 2.5rem;
+    font-weight: 700;
+
+}
+
+.t__country {
+    font-size: 0.9rem;
+    margin-top: -12px;
+}
+
+
+.t__datetime {
+    font-size: 1rem;
+    margin: 10px 0 0 0;
+}
+
+.t__temp {
+    display: flex;
+    margin-top: -10px;
+
+    & .t__temp-data {
+        font-size: 6rem;
+        font-weight: 700;
+    }
+
+    & .t__temp-unit {
+        position: relative;
+        top: 33px;
+        font-size: 1.25rem;
+    }
+}
+
+.t__descr {
+    display: flex;
+    margin: -10px 0 18px 0;
+
+    & .t__descr-symbol {
+        margin-left: 10px;
+        height: 2rem;
+        position: relative;
+        top: 3px;
+    }
+
+    & .t__descr-text {
+        font-size: 1.25rem;
+    }
+}
+
+.t__info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    font-size: 1rem;
+
+
+    & .t__info-text {
+        justify-self: right;
+    }
+
+    & .t__info-data {
+        margin-left: 4px;
+    }
+}
+
+
+/* ---- FORECAST ---- */
+.forecast {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    margin: 30px 0 0 0;
+}
+
+hr {
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.276);
+    width: 100%;
+    border-width: 0;
+}
+
+.f__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.f__oneday,
+.f__twodays {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    margin: 5px;
+    font-size: 1rem;
+
+    & .f__date {
+        width: 90px;
+    }
+
+    & .f__temp {
+        justify-self: center;
+    }
+
+    & .f__symbol {
+        justify-self: flex-end;
+        margin-right: 5px;
+        height: 1.5rem;
+    }
+}
+
+
+/* ---- CREDIT ---- */
+.credit {
+    margin-top: auto;
+    font-size: 0.6rem;
+}
+
