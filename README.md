@@ -7,3 +7,6 @@
 
 
 **Task**: Build a weather app which would get data from an API.
+
+
+![alt text](https://github.com/justausercoding/weather-app/images/GUI_screenshot.png)
